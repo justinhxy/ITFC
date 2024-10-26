@@ -9,7 +9,8 @@ from Config import parse_args
 from observer import Runtime_Observer
 from Net.api import *
 import numpy as np
-
+# import os
+# os.environ["CUDA_VISIBLE_DEVICES"] = "5, 6 ,7"
 
 # def prepare_to_train(mri_dir, pet_dir, cli_dir, csv_file, batch_size, model_index,
 #                      seed, device, fold, data_parallel):
@@ -163,6 +164,7 @@ def prepare_to_train(mri_dir, pet_dir, cli_dir, csv_file, batch_size, model_inde
         if torch.cuda.device_count() > 1 and data_parallel == 1:
             observer.log("Using " + str(torch.cuda.device_count()) + " GPUs for training.\n")
             model = torch.nn.DataParallel(model)
+            model = model.to(device)
 
         observer.log(f'Use model : {str(experiment_settings)}\n')
         num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)

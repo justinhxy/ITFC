@@ -1,6 +1,6 @@
 from torch.nn import CrossEntropyLoss
-from torch.optim import Adam, SGD
-from Net.TripleNetwork import *
+from torch.optim import Adam
+from TripleNetwork import *
 from Net.api import *
 from loss_function import joint_loss
 
@@ -17,6 +17,8 @@ models = {
 
     },
 'Triple+KAN+self':{
+    # 参数量：51712485
+    #       51712488
         'Name': 'Triple_model_CrossAttentionFusion',
         'Model': Triple_model_CrossAttentionFusion_self_KAN,
         'Loss': joint_loss,

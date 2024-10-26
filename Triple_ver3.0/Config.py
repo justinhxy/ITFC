@@ -12,10 +12,10 @@ def parse_args():
     parser.add_argument('----model', type=str, default='Triple+KAN+self')
     parser.add_argument("--seed", default=42, type=int, help="seed given by LinkStart.py on cross Val")
     ## 本地调试
-    parser.add_argument('--mri_dir', type=str, default=r'D:\dataset\final\freesurfer\ADNI1\MRI', help='mri input path')
-    parser.add_argument('--pet_dir', type=str, default=r'D:\dataset\final\freesurfer\ADNI1\PET', help='pet input path')
+    # parser.add_argument('--mri_dir', type=str, default=r'D:\dataset\final\freesurfer\ADNI1\MRI', help='mri input path')
+    # parser.add_argument('--pet_dir', type=str, default=r'D:\dataset\final\freesurfer\ADNI1\PET', help='pet input path')
     parser.add_argument('--cli_dir', type=str, default='./ADNI_Clinical.csv', help='pet input path')
-    parser.add_argument('--csv_file', type=str, default='./matched_ADNI1_label.csv', help='pet input path')
+    parser.add_argument('--csv_file', type=str, default='./ADNI1_all.csv', help='pet input path')
     parser.add_argument('--csv_train_file_path', type=str, default='./ADNI1_train.csv', help='csv file path to train')
     parser.add_argument('--csv_test_file_path', type=str, default='./ADNI1_test.csv', help='csv file path to train')
     parser.add_argument('--csv_eval_file_path', type=str, default='./ADNI1_validation.csv', help='csv file path to test')
@@ -27,8 +27,13 @@ def parse_args():
     parser.add_argument('--test_log_path', type=str, default='ADNI1_test.txt', help='file path to record the test result')
 
     ## data_dir
-    # parser.add_argument('--mri_dir', type=str, default='/mntcephfs/med_dataset/huxiangyang/ADNI/freesurfer/ADNI1/MRI', help='mri input path')
-    # parser.add_argument('--pet_dir', type=str, default='/mntcephfs/med_dataset/huxiangyang/ADNI/freesurfer/ADNI1/PET', help='pet input path')
+    # parser.add_argument('--mri_dir', type=str, default='/home/publicdata/ADNI/ADNI1/MRI', help='mri input path')
+    parser.add_argument('--mri_dir', type=str, default='/data3/wangchangmiao/ADNI/freesurfer/ADNI1/MRI', help='mri input path')
+    # parser.add_argument('--mri_dir', type=str, default='/mntcephfs/med_dataset/shenxy/ADNI/ADNI1_ALL/MRI', help='mri input path')
+
+    # parser.add_argument('--pet_dir', type=str, default='/home/publicdata/ADNI/ADNI1/PET', help='pet input path')
+    parser.add_argument('--pet_dir', type=str, default='/data3/wangchangmiao/ADNI/freesurfer/ADNI1/PET', help='pet input path')
+    # parser.add_argument('--pet_dir', type=str, default='/mntcephfs/med_dataset/shenxy/ADNI/ADNI1_ALL/PET', help='pet input path')
 
     ## match_data
     # parser.add_argument('--csv_train_file_path', type=str, default='/mntcephfs/lab_data/wangcm/hxy/ADNI_Label/match/ADNI1_train.csv', help='csv file path to train')

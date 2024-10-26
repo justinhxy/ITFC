@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from kan import*
+import math
+from Net.kan import *
 
 def conv3x3x3(in_planes, out_planes, stride=1):
     return nn.Conv3d(in_planes,
@@ -91,7 +92,7 @@ class Bottleneck(nn.Module):
 def get_pretrained_Vision_Encoder(**kwargs):
     # model = ResNetDualInput(Bottleneck, [3, 4, 6, 3], get_inplanes())
     model = ResNet(Bottleneck, [3, 4, 6, 3], get_inplanes())
-    state_dict = torch.load(r"D:\pycharm_project\Triple\model\r3d50_K_200ep.pth")['state_dict']
+    state_dict = torch.load("/home/wangchangmiao/syz/self_net/TripleTest_adni1/pretrained_model/r3d50_K_200ep.pth")['state_dict']
     keys = list(state_dict.keys())
     state_dict.pop(keys[0])
     state_dict.pop(keys[-1])
@@ -236,7 +237,20 @@ class DenseLayer(torch.nn.Module):
 
     def forward(self, x):
         return torch.cat([x, self.layer(x)], dim=1)
+# 定义交叉洗牌函数，交叉/穿插拼接
+def shuffle_interleave(tensor1, tensor2):
+    batch_size, length, dim= tensor1.shape
 
+    # 确保两个张量的形状相同
+    assert tensor1.shape == tensor2.shape, "两个张量的形状必须相同"
+
+    # 将两个张量在通道维度进行交叉洗牌
+
+    # 交替拼接两个张量的通道
+    interleaved = torch.empty(batch_size, length * 2, dim, device=tensor1.device)  # (B, 1024, D*H*W)
+    interleaved[:, 0::2, :] = tensor1  # 从偶数位置开始填充tensor1
+    interleaved[:, 1::2, :] = tensor2  # 从奇数位置开始填充tensor2
+    return interleaved
 
 class DenseBlock(torch.nn.Sequential):
     def __init__(self, layer_num, growth_rate, in_channels, middele_channels=128):
