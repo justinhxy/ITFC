@@ -54,7 +54,8 @@ python inference.py --model_path <path_to_trained_model> --data_path <path_to_da
 
 ## 6. Experimental Results and Visualizations
 The results of our experiments are summarized in the table below:
-|       | | ADNI1 | ADNI2 |
+|       |       | ADNI1 | ADNI2 |
+|-------|-------|-------|-------|
 | Methods          | Modality  | ACC   | SPE   | SEN   | AUC   | F1    | ACC   | SPE   | SEN   | AUC   | F1    |
 |------------------|-----------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | ResNet           | **M+P**   | 0.725 | 0.823 | 0.564 | 0.653 | 0.606 | 0.809 | 0.928 | 0.437 | 0.709 | 0.510 |
