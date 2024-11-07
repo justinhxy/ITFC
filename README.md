@@ -15,11 +15,9 @@ To run this project, ensure that you have the following software and dependencie
 - Other required libraries (e.g., NumPy, pandas, scikit-learn, etc.)
 
 ### Installation
-
-```bash
 pip install -r requirements.txt
 
-##3. Training and Inference Code
+## 3. Training and Inference Code
 Training Code: To train the model, run the following command:
 bash
 python train.py
@@ -28,7 +26,7 @@ bash
 python inference.py --model_path <path_to_model>
 
 
-##4. Dataset Folder and Split Ratios
+## 4. Dataset Folder and Split Ratios
 The dataset is organized as follows:
 /dataset
     /MRI
@@ -43,7 +41,7 @@ Validation: 15%
 Test: 15%
 Ensure that the dataset is split accordingly for reproducible results.
 
-##5. Code Execution Example
+## 5. Code Execution Example
 Here is an example of how to run the training and inference code:
 
 Training:
@@ -54,5 +52,5 @@ Inference:
 bash
 python inference.py --model_path <path_to_trained_model> --data_path <path_to_data>
 
-##6. Experimental Results and Visualizations
+## 6. Experimental Results and Visualizations
 The results of our experiments are summarized in the table below:
