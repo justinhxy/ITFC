@@ -18,28 +18,20 @@ To run this project, ensure that you have the following software and dependencie
 pip install -r requirements.txt
 
 ## 3. Training and Inference Code
-Training Code: To train the model, run the following command:
-bash
-python train.py
-Inference Code: To perform inference on a trained model, use the following command:
-bash
-python inference.py --model_path <path_to_model>
+To ensure reproducible and comparable results, we employed 5-fold cross-validation in all experiments, validating the model's stability and generalization while maintaining a consistent random seed for data splitting. We conducted our experiments using the PyTorch 2.0 framework, utilizing a single NVIDIA A100 80 GB GPU for computational efficiency. The model was trained from scratch over two distinct stages, each consisting of 200 epochs, with a batch size of 8 to effectively manage the data. We optimized the model parameters using the Adam algorithm, setting the learning rate to 0.0001 to ensure precise adjustments during training.
 
 
 ## 4. Dataset Folder and Split Ratios
-The dataset is organized as follows:
-/dataset
-    /MRI
-    /PET
-    /clinical_data
-MRI: Directory containing the MRI scans in NIfTI format (.nii).
-PET: Directory containing the PET scans in NIfTI format (.nii).
-clinical_data: CSV files containing clinical data for the patients.
-Data Split:
-Training: 70%
-Validation: 15%
-Test: 15%
-Ensure that the dataset is split accordingly for reproducible results.
+The dataset for this study is obtained from the Alzheimer's Disease Neuroimaging Initiative (ADNI), specifically the ADNI-1 and ADNI-2 cohorts. To prevent duplication, subjects present in both datasets were removed from ADNI-2. We selected T1-weighted sMRI, FDG-PET, and clinical data, categorized into four groups: normal controls (NC), sMCI, pMCI, and AD. Demographic information of the dataset is shown in Table below. Additionally, PET data is missing for 82 pMCI and 95 sMCI cases in ADNI-1, and for 1 pMCI and 30 sMCI cases in ADNI-2.
+
+| Variable         | ADNI1 - AD   | ADNI1 - pMCI | ADNI1 - sMCI | ADNI1 - NC  | ADNI2 - AD  | ADNI2 - pMCI | ADNI2 - sMCI | ADNI2 - NC  |
+|------------------|--------------|--------------|--------------|-------------|-------------|--------------|--------------|-------------|
+| Number (M/F)     | 88/83        | 90/61        | 136/72       | 103/104     | 89/67       | 43/38        | 156/125      | 132/165     |
+| Age              | 75.35±7.47   | 74.63±7.18   | 74.75±7.63   | 75.92±5.12  | 74.75±8.09  | 72.60±7.27   | 71.29±7.43   | 72.80±6.01  |
+| Education        | 14.64±3.19   | 15.66±2.92   | 15.61±3.11   | 15.91±2.87  | 15.72±2.75  | 16.29±2.55   | 16.31±2.61   | 16.61±2.5   |
+| CDR-SB           | 4.32±1.58    | 1.85±0.98    | 1.38±0.75    | 0.03±0.12   | 4.51±1.67   | 2.18±0.95    | 1.33±0.82    | 0.04±0.15   |
+| MMSE             | 23.23±2.03   | 26.59±1.7    | 27.33±1.77   | 29.14±0.98  | 23.12±2.07  | 27.1±1.82    | 28.21±1.63   | 28.99±1.26  |
+
 
 ## 5. Code Execution Example
 Here is an example of how to run the training and inference code:
