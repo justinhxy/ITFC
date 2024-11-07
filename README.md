@@ -4,7 +4,7 @@ This repository contains the implementation of the algorithm presented in the pa
 
 ## 1. Paper Algorithm Flowchart
 
-![Algorithm Flowchart](path_to_algorithm_flowchart_image)
+![Algorithm Flowchart](f1.png)
 
 ## 2. Environment Setup
 
