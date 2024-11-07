@@ -1,4 +1,4 @@
-# ISBI Algorithm for MCI Conversion Prediction
+# ITCFN: Incomplete Triple-Modal Co-Attention Fusion Network for Mild Cognitive Impairment Conersion Prediction
 
 This repository contains the implementation of the algorithm presented in the paper titled "Title of the Paper" for MCI conversion prediction using MRI, PET, and clinical data.
 
