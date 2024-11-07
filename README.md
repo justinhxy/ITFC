@@ -7,18 +7,14 @@ This repository contains the implementation of the algorithm presented in the pa
 ![Algorithm Flowchart](f1.png)
 
 ## 2. Environment Setup
+To ensure reproducible and comparable results, we employed 5-fold cross-validation in all experiments, validating the model's stability and generalization while maintaining a consistent random seed for data splitting. We conducted our experiments using the PyTorch 2.0 framework, utilizing a single NVIDIA A100 80 GB GPU for computational efficiency. The model was trained from scratch over two distinct stages, each consisting of 200 epochs, with a batch size of 8 to effectively manage the data. We optimized the model parameters using the Adam algorithm, setting the learning rate to 0.0001 to ensure precise adjustments during training.
 
-To run this project, ensure that you have the following software and dependencies installed:
-
-- Python 3.x
-- PyTorch (version)
-- Other required libraries (e.g., NumPy, pandas, scikit-learn, etc.)
 
 ### Installation
 pip install -r requirements.txt
 
 ## 3. Training and Inference Code
-To ensure reproducible and comparable results, we employed 5-fold cross-validation in all experiments, validating the model's stability and generalization while maintaining a consistent random seed for data splitting. We conducted our experiments using the PyTorch 2.0 framework, utilizing a single NVIDIA A100 80 GB GPU for computational efficiency. The model was trained from scratch over two distinct stages, each consisting of 200 epochs, with a batch size of 8 to effectively manage the data. We optimized the model parameters using the Adam algorithm, setting the learning rate to 0.0001 to ensure precise adjustments during training.
+
 
 
 ## 4. Dataset Folder and Split Ratios
