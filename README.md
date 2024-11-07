@@ -7,7 +7,7 @@ This repository contains the implementation of the algorithm presented in the pa
 ![Algorithm Flowchart](f1.png)
 
 ## 2. Environment Setup
-To ensure reproducible and comparable results, we employed 5-fold cross-validation in all experiments, validating the model's stability and generalization while maintaining a consistent random seed for data splitting. We conducted our experiments using the PyTorch 2.0 framework, utilizing a single NVIDIA A100 80 GB GPU for computational efficiency. The model was trained from scratch over two distinct stages, each consisting of 200 epochs, with a batch size of 8 to effectively manage the data. We optimized the model parameters using the Adam algorithm, setting the learning rate to 0.0001 to ensure precise adjustments during training.
+ We conducted our experiments using the PyTorch 2.0 framework, utilizing a single NVIDIA A100 80 GB GPU for computational efficiency. The model was trained from scratch over two distinct stages, each consisting of 200 epochs, with a batch size of 8 to effectively manage the data. We optimized the model parameters using the Adam algorithm, setting the learning rate to 0.0001 to ensure precise adjustments during training.
 
 
 ### Installation
@@ -18,6 +18,8 @@ pip install -r requirements.txt
 
 
 ## 4. Dataset Folder and Split Ratios
+To ensure reproducible and comparable results, we employed 5-fold cross-validation in all experiments, validating the model's stability and generalization while maintaining a consistent random seed for data splitting.
+
 The dataset for this study is obtained from the Alzheimer's Disease Neuroimaging Initiative (ADNI), specifically the ADNI-1 and ADNI-2 cohorts. To prevent duplication, subjects present in both datasets were removed from ADNI-2. We selected T1-weighted sMRI, FDG-PET, and clinical data, categorized into four groups: normal controls (NC), sMCI, pMCI, and AD. Demographic information of the dataset is shown in Table below. Additionally, PET data is missing for 82 pMCI and 95 sMCI cases in ADNI-1, and for 1 pMCI and 30 sMCI cases in ADNI-2.
 
 | Variable         | ADNI1 - AD   | ADNI1 - pMCI | ADNI1 - sMCI | ADNI1 - NC  | ADNI2 - AD  | ADNI2 - pMCI | ADNI2 - sMCI | ADNI2 - NC  |
